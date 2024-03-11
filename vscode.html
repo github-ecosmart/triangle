@@ -1,0 +1,1311 @@
+
+<!DOCTYPE HTML>
+<html class="scrollbar" translate="no">
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta http-equiv="content-language" content="en-gb"><meta name="renderer" content="webkit"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="app:pageurl" content="/"><title>VSCode Cheat Sheet & Quick Reference</title><meta name="keywords" content="reference,cheatsheet,code table,snippets,linux,text,editor,shortcut"><meta name="description" content="This VSCode (Visual Studio Code) quick reference cheat sheet shows its keyboard shortcuts and commands. "><meta property="og:url" content="https://quickref.me/vscode.html"><meta property="og:title" content="VSCode Cheat Sheet & Quick Reference"><meta property="og:site_name" content="QuickRef.ME"><meta property="og:description" content="This VSCode (Visual Studio Code) quick reference cheat sheet shows its keyboard shortcuts and commands. "><meta property="og:image" content="https://quickref.me/assets/image/vscode-preview.png?v=f16gij"><meta property="og:image:width" content="2276"><meta property="og:image:height" content="1240"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="VSCode Cheat Sheet & Quick Reference"><meta name="twitter:site" content="@QuickRef.ME"><meta name="twitter:creator" content="@QuickRef.ME"><meta name="twitter:description" content="This VSCode (Visual Studio Code) quick reference cheat sheet shows its keyboard shortcuts and commands. "><meta name="twitter:image" content="https://quickref.me/assets/image/vscode-preview.png?v=1wjjgf"><link rel="icon" href="/images/favicon.png?v=1"><link rel="icon shortcut" type="image/png" href="/images/favicon.png?v=1"><link rel="canonical" href="https://quickref.me/vscode.html"><link rel="prefetch" href="https://quickref.me"><link rel="prerender" href="https://quickref.me"><link rel="alternate" href="/atom.xml" title="Triangle" type="application/atom+xml"><link rel="stylesheet" href="/css/style.css?_v=1694179016929">
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            let html = document.documentElement.classList;
+            html.toggle('dark')
+        }
+        <div class="h2-wrap">
+<h2 id="keyboard-shortcuts-for-windows"><a class="h-anchor" href="#keyboard-shortcuts-for-windows">#</a>Keyboard shortcuts for Windows</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="general"><a class="h-anchor" href="#general">#</a>General</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>P</code></td>
+<td>Show Command Palette</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>P</code></td>
+<td>Quick Open, Go to File...</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>N</code></td>
+<td>New window/instance</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>W</code></td>
+<td>Close window/instance</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>,</code></td>
+<td>User Settings</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>S</code></td>
+<td>Keyboard Shortcuts</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap row-span-2">
+<h3 id="basic-editing"><a class="h-anchor" href="#basic-editing">#</a>Basic Editing</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> <code>X</code></td>
+<td>Cut line (empty selection)</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>C</code></td>
+<td>Copy line (empty selection)</td>
+</tr>
+<tr>
+<td><code>Alt</code> <code>Up/Down</code></td>
+<td>Move line up/down</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>Alt</code> <code>Up/Down</code></td>
+<td>Copy line up/down</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>K</code></td>
+<td>Delete line</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Enter</code></td>
+<td>Insert line below</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>Enter</code></td>
+<td>Insert line above</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>\</code></td>
+<td>Jump to matching bracket</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>]/[</code></td>
+<td>Indent/outdent line</td>
+</tr>
+<tr>
+<td><code>Home/End</code></td>
+<td>Go to beginning/end of line</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Home</code></td>
+<td>Go to beginning of file</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>End</code></td>
+<td>Go to end of file</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Up/Down</code></td>
+<td>Scroll line up/down</td>
+</tr>
+<tr>
+<td><code>Alt</code> <code>PgUp/PgDown</code></td>
+<td>Scroll page up/down</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>[</code></td>
+<td>Fold (collapse) region</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>]</code></td>
+<td>Unfold (uncollapse) region</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>[</code></td>
+<td>Fold (collapse) all subregions</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>]</code></td>
+<td>Unfold (uncollapse) all subregions</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>0</code></td>
+<td>Fold (collapse) all regions</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>J</code></td>
+<td>Unfold (uncollapse) all regions</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>C</code></td>
+<td>Add line comment</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>U</code></td>
+<td>Remove line comment</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>/</code></td>
+<td>Toggle line comment</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>Alt</code> <code>A</code></td>
+<td>Toggle block comment</td>
+</tr>
+<tr>
+<td><code>Alt</code> <code>Z</code></td>
+<td>Toggle word wrap</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="navigation"><a class="h-anchor" href="#navigation">#</a>Navigation</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> <code>T</code></td>
+<td>Show all Symbols</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>G</code></td>
+<td>Go to Line...</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>P</code></td>
+<td>Go to File...</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>O</code></td>
+<td>Go to Symbol...</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>M</code></td>
+<td>Show Problems panel</td>
+</tr>
+<tr>
+<td><code>F8</code></td>
+<td>Go to next error or warning</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>F8</code></td>
+<td>Go to previous error or warning</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>Tab</code></td>
+<td>Navigate editor group history</td>
+</tr>
+<tr>
+<td><code>Alt</code> <code>Left/Right</code></td>
+<td>Go back/forward</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>M</code></td>
+<td>Toggle Tab moves focus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="search-and-replace"><a class="h-anchor" href="#search-and-replace">#</a>Search and replace</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> <code>F</code></td>
+<td>Find</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>H</code></td>
+<td>Replace</td>
+</tr>
+<tr>
+<td><code>F3</code></td>
+<td>Find next</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>F3</code></td>
+<td>Find previous</td>
+</tr>
+<tr>
+<td><code>Alt</code> <code>Enter</code></td>
+<td>Select all occurences of Find match</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>D</code></td>
+<td>Add selection to next Find match</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>D</code></td>
+<td>Move last selection to next Find match</td>
+</tr>
+<tr>
+<td><code>Alt</code> <code>C/R/W</code></td>
+<td>Toggle case-sensitive/regex/whole word</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="multi-cursor-and-selection"><a class="h-anchor" href="#multi-cursor-and-selection">#</a>Multi-cursor and selection</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Alt</code> <code>Click</code></td>
+<td>Insert cursor</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Alt</code> <code>Up/Down</code></td>
+<td>Insert cursor above/below</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>U</code></td>
+<td>Undo last cursor operation</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>Alt</code> <code>I</code></td>
+<td>Insert cursor at end of each line selected</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>I</code></td>
+<td>Select current line</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>L</code></td>
+<td>Select all occurrences of current selection</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>F2</code></td>
+<td>Select all occurrences of current word</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>Alt</code> <code>Right</code></td>
+<td>Expand selection</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>Alt</code> <code>Left</code></td>
+<td>Shrink selection</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>Alt</code> <code>(drag mouse)</code></td>
+<td>Column (box) selection</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>Alt</code> <code>(arrow key)</code></td>
+<td>Column (box) selection</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>Alt</code> <code>PgUp/PgDown</code></td>
+<td>Column (box) selection page up/down</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="rich-languages-editing"><a class="h-anchor" href="#rich-languages-editing">#</a>Rich languages editing</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> <code>Space</code></td>
+<td>Trigger suggestion</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>Space</code></td>
+<td>Trigger parameter hints</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>Alt</code> <code>F</code></td>
+<td>Format document</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>F</code></td>
+<td>Format selection</td>
+</tr>
+<tr>
+<td><code>F12</code></td>
+<td>Go to Definition</td>
+</tr>
+<tr>
+<td><code>Alt</code> <code>F12</code></td>
+<td>Peek Definition</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>F12</code></td>
+<td>Open Definition to the side</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>.</code></td>
+<td>Quick Fix</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>F12</code></td>
+<td>Show References</td>
+</tr>
+<tr>
+<td><code>F2</code></td>
+<td>Rename Symbol</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>X</code></td>
+<td>Trim trailing whitespace</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>M</code></td>
+<td>Change file language</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="editor-management"><a class="h-anchor" href="#editor-management">#</a>Editor management</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> <code>F4</code></td>
+<td>Close editor</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>W</code></td>
+<td>Close editor</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>F</code></td>
+<td>Close folder</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>\</code></td>
+<td>Split editor</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>1/2/3</code></td>
+<td>Focus into 1st, 2nd, or 3rd editor group</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>Left/Right</code></td>
+<td>Focus into previous/next editor group</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>PgUp/PgDown</code></td>
+<td>Move editor left/right</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Left/Right</code></td>
+<td>Move active editor group</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="file-management"><a class="h-anchor" href="#file-management">#</a>File management</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> <code>N</code></td>
+<td>New File</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>O</code></td>
+<td>Open File...</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>S</code></td>
+<td>Save</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>S</code></td>
+<td>Save As...</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>S</code></td>
+<td>Save All</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>F4</code></td>
+<td>Close</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>W</code></td>
+<td>Close All</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>T</code></td>
+<td>Reopen closed editor</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Enter</code></td>
+<td>Keep preview mode editor open</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Tab</code></td>
+<td>Open next</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>Tab</code></td>
+<td>Open previous</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>P</code></td>
+<td>Copy path of active file</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>R</code></td>
+<td>Reveal active file in Explorer</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>O</code></td>
+<td>Show active file in new window/instance</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="display"><a class="h-anchor" href="#display">#</a>Display</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>F11</code></td>
+<td>Toggle full screen</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>Alt</code> <code>0</code></td>
+<td>Toggle editor layout (horizontal/vertical)</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>=/-</code></td>
+<td>Zoom in/out</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>B</code></td>
+<td>Toggle Sidebar visibility</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>E</code></td>
+<td>Show Explorer/Toggle focus</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>F</code></td>
+<td>Show Search</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>G</code></td>
+<td>Show Source Control</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>D</code></td>
+<td>Show Debug</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>X</code></td>
+<td>Show Extensions</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>H</code></td>
+<td>Replace in files</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>J</code></td>
+<td>Toggle Search details</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>U</code></td>
+<td>Show Output panel</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>V</code></td>
+<td>Open Markdown preview</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>V</code></td>
+<td>Open Markdown preview to the side</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Z</code></td>
+<td>Zen Mode (Esc Esc to exit)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="debug"><a class="h-anchor" href="#debug">#</a>Debug</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>F9</code></td>
+<td>Toggle breakpoint</td>
+</tr>
+<tr>
+<td><code>F5</code></td>
+<td>Start/Continue</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>F5</code></td>
+<td>Stop</td>
+</tr>
+<tr>
+<td><code>F11</code></td>
+<td>Step into</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>F11</code></td>
+<td>Step out</td>
+</tr>
+<tr>
+<td><code>F10</code></td>
+<td>Step over</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>K</code> <code>Ctrl</code> <code>I</code></td>
+<td>Show hover</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="integrated-terminal"><a class="h-anchor" href="#integrated-terminal">#</a>Integrated terminal</h3>
+<div class="section">
+<table class="shortcuts">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> <code>`</code></td>
+<td>Show integrated terminal</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Shift</code> <code>`</code></td>
+<td>Create new terminal</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>C</code></td>
+<td>Copy selection</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>V</code></td>
+<td>Paste into active terminal</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Up/Down</code></td>
+<td>Scroll up/down</td>
+</tr>
+<tr>
+<td><code>Shift</code> <code>PgUp/PgDown</code></td>
+<td>Scroll page up/down</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> <code>Home/End</code></td>
+<td>Scroll to top/bottom</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="keyboard-shortcuts-for-macos"><a class="h-anchor" href="#keyboard-shortcuts-for-macos">#</a>Keyboard shortcuts for MacOS</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="general-2"><a class="h-anchor" href="#general-2">#</a>General</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⇧⌘P, F1</td>
+<td>Show Command Palette</td>
+</tr>
+<tr>
+<td>⌘P</td>
+<td>Quick Open, Go to File…</td>
+</tr>
+<tr>
+<td>⇧⌘N</td>
+<td>New window/instance</td>
+</tr>
+<tr>
+<td>⌘W</td>
+<td>Close window/instance</td>
+</tr>
+<tr>
+<td>⌘,</td>
+<td>User Settings</td>
+</tr>
+<tr>
+<td>⌘K ⌘S</td>
+<td>Keyboard Shortcuts</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap row-span-2">
+<h3 id="basic-editing-2"><a class="h-anchor" href="#basic-editing-2">#</a>Basic editing</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌘X</td>
+<td>Cut line (empty selection)</td>
+</tr>
+<tr>
+<td>⌘C</td>
+<td>Copy line (empty selection)</td>
+</tr>
+<tr>
+<td>⌥↓ / ⌥↑</td>
+<td>Move line down/up</td>
+</tr>
+<tr>
+<td>⇧⌥↓ / ⇧⌥↑</td>
+<td>Copy line down/up</td>
+</tr>
+<tr>
+<td>⇧⌘K</td>
+<td>Delete line</td>
+</tr>
+<tr>
+<td>⌘Enter / ⇧⌘Enter</td>
+<td>Insert line below/above</td>
+</tr>
+<tr>
+<td>⇧⌘\</td>
+<td>Jump to matching bracket</td>
+</tr>
+<tr>
+<td>⌘] / ⌘[</td>
+<td>Indent/outdent line</td>
+</tr>
+<tr>
+<td>Home / End</td>
+<td>Go to beginning/end of line</td>
+</tr>
+<tr>
+<td>⌘↑ / ⌘↓</td>
+<td>Go to beginning/end of file</td>
+</tr>
+<tr>
+<td>⌃PgUp / ⌃PgDn</td>
+<td>Scroll line up/down</td>
+</tr>
+<tr>
+<td>⌘PgUp /⌘PgDn</td>
+<td>Scroll page up/down</td>
+</tr>
+<tr>
+<td>⌥⌘[ / ⌥⌘]</td>
+<td>Fold/unfold region</td>
+</tr>
+<tr>
+<td>⌘K ⌘[ / ⌘K ⌘]</td>
+<td>Fold/unfold all subregions</td>
+</tr>
+<tr>
+<td>⌘K ⌘0 / ⌘K ⌘J</td>
+<td>Fold/unfold all regions</td>
+</tr>
+<tr>
+<td>⌘K ⌘C</td>
+<td>Add line comment</td>
+</tr>
+<tr>
+<td>⌘K ⌘U</td>
+<td>Remove line comment</td>
+</tr>
+<tr>
+<td>⌘/</td>
+<td>Toggle line comment</td>
+</tr>
+<tr>
+<td>⇧⌥A</td>
+<td>Toggle block comment</td>
+</tr>
+<tr>
+<td>⌥Z</td>
+<td>Toggle word wrap</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap row-span-2">
+<h3 id="multi-cursor-and-selection-2"><a class="h-anchor" href="#multi-cursor-and-selection-2">#</a>Multi-cursor and selection</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌥ +</td>
+<td>click Insert cursor</td>
+</tr>
+<tr>
+<td>⌥⌘↑</td>
+<td>Insert cursor above</td>
+</tr>
+<tr>
+<td>⌥⌘↓</td>
+<td>Insert cursor below</td>
+</tr>
+<tr>
+<td>⌘U</td>
+<td>Undo last cursor operation</td>
+</tr>
+<tr>
+<td>⇧⌥I</td>
+<td>Insert cursor at end of each line selected</td>
+</tr>
+<tr>
+<td>⌘L</td>
+<td>Select current line</td>
+</tr>
+<tr>
+<td>⇧⌘L</td>
+<td>Select all occurrences of current selection</td>
+</tr>
+<tr>
+<td>⌘F2</td>
+<td>Select all occurrences of current word</td>
+</tr>
+<tr>
+<td>⌃⇧⌘→ / ←</td>
+<td>Expand / shrink selection</td>
+</tr>
+<tr>
+<td>⇧⌥ + drag mouse</td>
+<td>Column (box) selection</td>
+</tr>
+<tr>
+<td>⇧⌥⌘↑ / ↓</td>
+<td>Column (box) selection up/down</td>
+</tr>
+<tr>
+<td>⇧⌥⌘← / →</td>
+<td>Column (box) selection left/right</td>
+</tr>
+<tr>
+<td>⇧⌥⌘PgUp</td>
+<td>Column (box) selection page up</td>
+</tr>
+<tr>
+<td>⇧⌥⌘PgDn</td>
+<td>Column (box) selection page down</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="search-and-replace-2"><a class="h-anchor" href="#search-and-replace-2">#</a>Search and replace</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌘F</td>
+<td>Find</td>
+</tr>
+<tr>
+<td>⌥⌘F</td>
+<td>Replace</td>
+</tr>
+<tr>
+<td>⌘G / ⇧⌘G</td>
+<td>Find next/previous</td>
+</tr>
+<tr>
+<td>⌥Enter</td>
+<td>Select all occurrences of Find match</td>
+</tr>
+<tr>
+<td>⌘D</td>
+<td>Add selection to next Find match</td>
+</tr>
+<tr>
+<td>⌘K ⌘D</td>
+<td>Move last selection to next Find match</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="rich-languages-editing-2"><a class="h-anchor" href="#rich-languages-editing-2">#</a>Rich languages editing</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌃Space, ⌘I</td>
+<td>Trigger suggestion</td>
+</tr>
+<tr>
+<td>⇧⌘Space</td>
+<td>Trigger parameter hints</td>
+</tr>
+<tr>
+<td>⇧⌥F</td>
+<td>Format document</td>
+</tr>
+<tr>
+<td>⌘K ⌘F</td>
+<td>Format selection</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>Go to Definition</td>
+</tr>
+<tr>
+<td>⌥F12</td>
+<td>Peek Definition</td>
+</tr>
+<tr>
+<td>⌘K F12</td>
+<td>Open Definition to the side</td>
+</tr>
+<tr>
+<td>⌘.</td>
+<td>Quick Fix</td>
+</tr>
+<tr>
+<td>⇧F12</td>
+<td>Show References</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>Rename Symbol</td>
+</tr>
+<tr>
+<td>⌘K ⌘X</td>
+<td>Trim trailing whitespace</td>
+</tr>
+<tr>
+<td>⌘K M</td>
+<td>Change file language</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="navigation-2"><a class="h-anchor" href="#navigation-2">#</a>Navigation</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌘T</td>
+<td>Show all Symbols</td>
+</tr>
+<tr>
+<td>⌃G</td>
+<td>Go to Line...</td>
+</tr>
+<tr>
+<td>⌘P</td>
+<td>Go to File...</td>
+</tr>
+<tr>
+<td>⇧⌘O</td>
+<td>Go to Symbol...</td>
+</tr>
+<tr>
+<td>⇧⌘M</td>
+<td>Show Problems panel</td>
+</tr>
+<tr>
+<td>F8 / ⇧F8</td>
+<td>Go to next/previous error or warning</td>
+</tr>
+<tr>
+<td>⌃⇧Tab</td>
+<td>Navigate editor group history</td>
+</tr>
+<tr>
+<td>⌃- / ⌃⇧-</td>
+<td>Go back/forward</td>
+</tr>
+<tr>
+<td>⌃⇧M</td>
+<td>Toggle Tab moves focus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="editor-management-2"><a class="h-anchor" href="#editor-management-2">#</a>Editor management</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌘W</td>
+<td>Close editor</td>
+</tr>
+<tr>
+<td>⌘K F</td>
+<td>Close folder</td>
+</tr>
+<tr>
+<td>⌘\</td>
+<td>Split editor</td>
+</tr>
+<tr>
+<td>⌘1 / ⌘2 / ⌘3</td>
+<td>Focus into 1st, 2nd, 3rd editor group</td>
+</tr>
+<tr>
+<td>⌘K ⌘← / ⌘K ⌘→</td>
+<td>Focus into previous/next editor group</td>
+</tr>
+<tr>
+<td>⌘K ⇧⌘← / ⌘K ⇧⌘→</td>
+<td>Move editor left/right</td>
+</tr>
+<tr>
+<td>⌘K ← / ⌘K →</td>
+<td>Move active editor group</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap row-span-2">
+<h3 id="file-management-2"><a class="h-anchor" href="#file-management-2">#</a>File management</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌘N</td>
+<td>New File</td>
+</tr>
+<tr>
+<td>⌘O</td>
+<td>Open File...</td>
+</tr>
+<tr>
+<td>⌘S</td>
+<td>Save</td>
+</tr>
+<tr>
+<td>⇧⌘S</td>
+<td>Save As...</td>
+</tr>
+<tr>
+<td>⌥⌘S</td>
+<td>Save All</td>
+</tr>
+<tr>
+<td>⌘W</td>
+<td>Close</td>
+</tr>
+<tr>
+<td>⌘K ⌘W</td>
+<td>Close All</td>
+</tr>
+<tr>
+<td>⇧⌘T</td>
+<td>Reopen closed editor</td>
+</tr>
+<tr>
+<td>⌘K</td>
+<td>Enter Keep preview mode editor open</td>
+</tr>
+<tr>
+<td>⌃Tab / ⌃⇧Tab</td>
+<td>Open next / previous</td>
+</tr>
+<tr>
+<td>⌘K P</td>
+<td>Copy path of active file</td>
+</tr>
+<tr>
+<td>⌘K R</td>
+<td>Reveal active file in Finder</td>
+</tr>
+<tr>
+<td>⌘K O</td>
+<td>Show active file in new window/instance</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap row-span-2">
+<h3 id="display-2"><a class="h-anchor" href="#display-2">#</a>Display </h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌃⌘F</td>
+<td>Toggle full screen</td>
+</tr>
+<tr>
+<td>⌥⌘0</td>
+<td>Toggle editor layout (horizontal/vertical)</td>
+</tr>
+<tr>
+<td>⌘= / ⇧⌘-</td>
+<td>Zoom in/out</td>
+</tr>
+<tr>
+<td>⌘B</td>
+<td>Toggle Sidebar visibility</td>
+</tr>
+<tr>
+<td>⇧⌘E</td>
+<td>Show Explorer / Toggle focus</td>
+</tr>
+<tr>
+<td>⇧⌘F</td>
+<td>Show Search</td>
+</tr>
+<tr>
+<td>⌃⇧G</td>
+<td>Show Source Control</td>
+</tr>
+<tr>
+<td>⇧⌘D</td>
+<td>Show Debug</td>
+</tr>
+<tr>
+<td>⇧⌘X</td>
+<td>Show Extensions</td>
+</tr>
+<tr>
+<td>⇧⌘H</td>
+<td>Replace in files</td>
+</tr>
+<tr>
+<td>⇧⌘J</td>
+<td>Toggle Search details</td>
+</tr>
+<tr>
+<td>⇧⌘U</td>
+<td>Show Output panel</td>
+</tr>
+<tr>
+<td>⇧⌘V</td>
+<td>Open Markdown preview</td>
+</tr>
+<tr>
+<td>⌘K V</td>
+<td>Open Markdown preview to the side</td>
+</tr>
+<tr>
+<td>⌘K Z</td>
+<td>Zen Mode (Esc Esc to exit)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="debug-2"><a class="h-anchor" href="#debug-2">#</a>Debug</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F9</td>
+<td>Toggle breakpoint</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>Start/Continue</td>
+</tr>
+<tr>
+<td>F11 / ⇧F11</td>
+<td>Step into/ out</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>Step over</td>
+</tr>
+<tr>
+<td>⇧F5</td>
+<td>Stop</td>
+</tr>
+<tr>
+<td>⌘K ⌘I</td>
+<td>Show hover</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="integrated-terminal-2"><a class="h-anchor" href="#integrated-terminal-2">#</a>Integrated terminal</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌃`</td>
+<td>Show integrated terminal</td>
+</tr>
+<tr>
+<td>⌃⇧`</td>
+<td>Create new terminal</td>
+</tr>
+<tr>
+<td>⌘C</td>
+<td>Copy selection</td>
+</tr>
+<tr>
+<td>⌘↑ / ↓</td>
+<td>Scroll up/down</td>
+</tr>
+<tr>
+<td>PgUp / PgDn</td>
+<td>Scroll page up/down</td>
+</tr>
+<tr>
+<td>⌘Home / End</td>
+<td>Scroll to top/bottom</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="also-see"><a class="h-anchor" href="#also-see">#</a>Also see</h2>
+<div class="h3-wrap-list">
+<ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">VS Code Keyboard shortcuts for Windows</a> <em>(code.visualstudio.com)</em></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">VS Code Keyboard shortcuts for macOS</a> <em>(code.visualstudio.com)</em></li>
+</ul>
+</div>
+</div>
+
+     
