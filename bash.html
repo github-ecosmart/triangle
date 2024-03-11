@@ -1,0 +1,493 @@
+<h2>&nbsp;</h2>
+<p>This is a quick reference cheat sheet to getting started with linux bash shell scripting.</p>
+<h2><a href="https://quickref.me/bash#getting-started">#</a>Getting Started</h2>
+<h3>hello.sh</h3>
+<p>#!/bin/bash
+    
+    VAR="world"
+    echo "Hello $VAR!" # =&gt; Hello world!
+</p>
+<p>Execute the script</p>
+<p>$ bash hello.sh
+</p>
+<h3>Variables</h3>
+<p>NAME="John"
+    
+    echo ${NAME} &nbsp; &nbsp;# =&gt; John (Variables)
+    echo $NAME &nbsp; &nbsp; &nbsp;# =&gt; John (Variables)
+    echo "$NAME" &nbsp; &nbsp;# =&gt; John (Variables)
+    echo '$NAME' &nbsp; &nbsp;# =&gt; $NAME (Exact string)
+    echo "${NAME}!" # =&gt; John! (Variables)
+    
+    NAME = "John" &nbsp; # =&gt; Error (about space)
+</p>
+<h3>Comments</h3>
+<p># This is an inline Bash comment.
+    : '
+    This is a
+    very neat comment
+    in bash
+    '
+</p>
+<p>Multi-line comments use&nbsp;<code>:'</code>&nbsp;to open and&nbsp;<code>'</code>&nbsp;to close</p>
+<h3>Arguments</h3>
+<figure class="table">
+    <table>
+        <tbody>
+            <tr>
+                <td><code>$1</code>&nbsp;…&nbsp;<code>$9</code></td>
+                <td>Parameter 1 ... 9</td>
+            </tr>
+            <tr>
+                <td><code>$0</code></td>
+                <td>Name of the script itself</td>
+            </tr>
+            <tr>
+                <td><code>$1</code></td>
+                <td>First argument</td>
+            </tr>
+            <tr>
+                <td><code>${10}</code></td>
+                <td>Positional parameter 10</td>
+            </tr>
+            <tr>
+                <td><code>$#</code></td>
+                <td>Number of arguments</td>
+            </tr>
+            <tr>
+                <td><code>$$</code></td>
+                <td>Process id of the shell</td>
+            </tr>
+            <tr>
+                <td><code>$*</code></td>
+                <td>All arguments</td>
+            </tr>
+            <tr>
+                <td><code>$@</code></td>
+                <td>All arguments, starting from first</td>
+            </tr>
+            <tr>
+                <td><code>$-</code></td>
+                <td>Current options</td>
+            </tr>
+            <tr>
+                <td><code>$_</code></td>
+                <td>Last argument of the previous command</td>
+            </tr>
+        </tbody>
+    </table>
+</figure>
+<p>See:&nbsp;<a href="http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables">Special parameters</a></p>
+<h3>Functions</h3>
+<p>get_name() {
+    &nbsp; &nbsp;echo "John"
+    }
+    
+    echo "You are $(get_name)"
+</p>
+<p>See:&nbsp;<a href="https://quickref.me/bash#bash-functions">Functions</a></p>
+<h3>Conditionals</h3>
+<p>if [[ -z "$string" ]]; then
+    &nbsp; &nbsp;echo "String is empty"
+    elif [[ -n "$string" ]]; then
+    &nbsp; &nbsp;echo "String is not empty"
+    fi
+</p>
+<p>See:&nbsp;<a href="https://quickref.me/bash#bash-conditionals">Conditionals</a></p>
+<h3>Brace expansion</h3>
+<p>echo {A,B}.js
+</p>
+<hr>
+<figure class="table">
+    <table>
+        <tbody>
+            <tr>
+                <td><code>{A,B}</code></td>
+                <td>Same as&nbsp;<code>A B</code></td>
+            </tr>
+            <tr>
+                <td><code>{A,B}.js</code></td>
+                <td>Same as&nbsp;<code>A.js B.js</code></td>
+            </tr>
+            <tr>
+                <td><code>{1..5}</code></td>
+                <td>Same as&nbsp;<code>1 2 3 4 5</code></td>
+            </tr>
+        </tbody>
+    </table>
+</figure>
+<p>See:&nbsp;<a href="http://wiki.bash-hackers.org/syntax/expansion/brace">Brace expansion</a></p>
+<h3>Shell execution</h3>
+<p># =&gt; I'm in /path/of/current
+    echo "I'm in $(PWD)"
+    
+    # Same as:
+    echo "I'm in `pwd`"
+</p>
+<p>See:&nbsp;<a href="http://wiki.bash-hackers.org/syntax/expansion/cmdsubst">Command substitution</a></p>
+<h2><a href="https://quickref.me/bash#bash-parameter-expansions">#</a>Bash Parameter expansions</h2>
+<h3>Syntax</h3>
+<figure class="table">
+    <table>
+        <tbody>
+            <tr>
+                <td><code>${FOO%suffix}</code></td>
+                <td>Remove suffix</td>
+            </tr>
+            <tr>
+                <td><code>${FOO#prefix}</code></td>
+                <td>Remove prefix</td>
+            </tr>
+            <tr>
+                <td><code>${FOO%%suffix}</code></td>
+                <td>Remove long suffix</td>
+            </tr>
+            <tr>
+                <td><code>${FOO##prefix}</code></td>
+                <td>Remove long prefix</td>
+            </tr>
+            <tr>
+                <td><code>${FOO/from/to}</code></td>
+                <td>Replace first match</td>
+            </tr>
+            <tr>
+                <td><code>${FOO//from/to}</code></td>
+                <td>Replace all</td>
+            </tr>
+            <tr>
+                <td><code>${FOO/%from/to}</code></td>
+                <td>Replace suffix</td>
+            </tr>
+            <tr>
+                <td><code>${FOO/#from/to}</code></td>
+                <td>Replace prefix</td>
+            </tr>
+        </tbody>
+    </table>
+</figure>
+<h4>Substrings</h4>
+<figure class="table">
+    <table>
+        <tbody>
+            <tr>
+                <td><code>${FOO:0:3}</code></td>
+                <td>Substring&nbsp;<i>(position, length)</i></td>
+            </tr>
+            <tr>
+                <td><code>${FOO:(-3):3}</code></td>
+                <td>Substring from the right</td>
+            </tr>
+        </tbody>
+    </table>
+</figure>
+<h4>Length</h4>
+<figure class="table">
+    <table>
+        <tbody>
+            <tr>
+                <td><code>${#FOO}</code></td><td>Length of&nbsp;<code>$FOO</code></td></tr></tbody></table></figure><h4>Default values</h4><figure class="table"><table><tbody><tr><td><code>${FOO:-val}</code></td><td><code>$FOO</code>, or&nbsp;<code>val</code>&nbsp;if unset</td></tr><tr><td><code>${FOO:=val}</code></td><td>Set&nbsp;<code>$FOO</code>&nbsp;to&nbsp;<code>val</code>&nbsp;if unset</td></tr><tr><td><code>${FOO:+val}</code></td><td><code>val</code>&nbsp;if&nbsp;<code>$FOO</code>&nbsp;is set</td></tr><tr><td><code>${FOO:?message}</code></td><td>Show message and exit if&nbsp;<code>$FOO</code>&nbsp;is unset</td></tr></tbody></table></figure><h3>Substitution</h3><p>echo ${food:-Cake} &nbsp;#=&gt; $food or "Cake"
+STR="/path/to/foo.cpp"
+echo ${STR%.cpp} &nbsp; &nbsp;# /path/to/foo
+echo ${STR%.cpp}.o &nbsp;# /path/to/foo.o
+echo ${STR%/*} &nbsp; &nbsp; &nbsp;# /path/to
+
+echo ${STR##*.} &nbsp; &nbsp; # cpp (extension)
+echo ${STR##*/} &nbsp; &nbsp; # foo.cpp (basepath)
+
+echo ${STR#*/} &nbsp; &nbsp; &nbsp;# path/to/foo.cpp
+echo ${STR##*/} &nbsp; &nbsp; # foo.cpp
+
+echo ${STR/foo/bar} # /path/to/bar.cpp
+</p><h3>Slicing</h3><p>name="John"
+echo ${name} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # =&gt; John
+echo ${name:0:2} &nbsp; &nbsp; &nbsp; # =&gt; Jo
+echo ${name::2} &nbsp; &nbsp; &nbsp; &nbsp;# =&gt; Jo
+echo ${name::-1} &nbsp; &nbsp; &nbsp; # =&gt; Joh
+echo ${name:(-1)} &nbsp; &nbsp; &nbsp;# =&gt; n
+echo ${name:(-2)} &nbsp; &nbsp; &nbsp;# =&gt; hn
+echo ${name:(-2):2} &nbsp; &nbsp;# =&gt; hn
+
+length=2
+echo ${name:0:length} &nbsp;# =&gt; Jo
+</p><p>See:&nbsp;<a href="http://wiki.bash-hackers.org/syntax/pe">Parameter expansion</a></p><h3>basepath &amp; dirpath</h3><p>SRC="/path/to/foo.cpp"
+BASEPATH=${SRC##*/} &nbsp; 
+echo $BASEPATH &nbsp;# =&gt; "foo.cpp"
+
+
+DIRPATH=${SRC%$BASEPATH}
+echo $DIRPATH &nbsp; # =&gt; "/path/to/"
+</p><h3>Transform</h3><p>STR="HELLO WORLD!"
+echo ${STR,} &nbsp; # =&gt; hELLO WORLD!
+echo ${STR,,} &nbsp;# =&gt; hello world!
+
+STR="hello world!"
+echo ${STR^} &nbsp; # =&gt; Hello world!
+echo ${STR^^} &nbsp;# =&gt; HELLO WORLD!
+
+ARR=(hello World)
+echo "${ARR[@],}" # =&gt; hello world
+echo "${ARR[@]^}" # =&gt; Hello World
+</p><h2><a href="https://quickref.me/bash#bash-arrays">#</a>Bash Arrays</h2><h3>Defining arrays</h3><p>Fruits=('Apple' 'Banana' 'Orange')
+
+Fruits[0]="Apple"
+Fruits[1]="Banana"
+Fruits[2]="Orange"
+
+ARRAY1=(foo{1..2}) # =&gt; foo1 foo2
+ARRAY2=({A..D}) &nbsp; &nbsp;# =&gt; A B C D
+
+# Merge =&gt; foo1 foo2 A B C D
+ARRAY3=(${ARRAY1[@]} ${ARRAY2[@]})
+
+# declare construct
+declare -a Numbers=(1 2 3)
+Numbers+=(4 5) # Append =&gt; 1 2 3 4 5
+</p><h3>Indexing</h3><figure class="table"><table><tbody><tr><td><code>${Fruits[0]}</code></td><td>First element</td></tr><tr><td><code>${Fruits[-1]}</code></td><td>Last element</td></tr><tr><td><code>${Fruits[*]}</code></td><td>All elements</td></tr><tr><td><code>${Fruits[@]}</code></td><td>All elements</td></tr><tr><td><code>${#Fruits[@]}</code></td><td>Number of all</td></tr><tr><td><code>${#Fruits}</code></td><td>Length of 1st</td></tr><tr><td><code>${#Fruits[3]}</code></td><td>Length of nth</td></tr><tr><td><code>${Fruits[@]:3:2}</code></td><td>Range</td></tr><tr><td><code>${!Fruits[@]}</code></td><td>Keys of all</td></tr></tbody></table></figure><h3>Iteration</h3><p>Fruits=('Apple' 'Banana' 'Orange')
+
+for e in "${Fruits[@]}"; do
+ &nbsp; &nbsp;echo $e
+done
+</p><h4>With index</h4><p>for i in "${!Fruits[@]}"; do
+ &nbsp;printf "%st%sn" "$i" "${Fruits[$i]}"
+done
+
+</p><h3>Operations</h3><p>Fruits=("${Fruits[@]}" "Watermelon") &nbsp; &nbsp; # Push
+Fruits+=('Watermelon') &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # Also Push
+Fruits=( ${Fruits[@]/Ap*/} ) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # Remove by regex match
+unset Fruits[2] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# Remove one item
+Fruits=("${Fruits[@]}") &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# Duplicate
+Fruits=("${Fruits[@]}" "${Veggies[@]}") &nbsp;# Concatenate
+lines=(`cat "logfile"`) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# Read from file
+</p><h3>Arrays as arguments</h3><p>function extract()
+{
+ &nbsp; &nbsp;local -n myarray=$1
+ &nbsp; &nbsp;local idx=$2
+ &nbsp; &nbsp;echo "${myarray[$idx]}"
+}
+Fruits=('Apple' 'Banana' 'Orange')
+extract Fruits 2 &nbsp; &nbsp; # =&gt; Orangle
+</p><h2><a href="https://quickref.me/bash#bash-dictionaries">#</a>Bash Dictionaries</h2><h3>Defining</h3><p>declare -A sounds
+sounds[dog]="bark"
+sounds[cow]="moo"
+sounds[bird]="tweet"
+sounds[wolf]="howl"
+</p><h3>Working with dictionaries</h3><p>echo ${sounds[dog]} # Dog's sound
+echo ${sounds[@]} &nbsp; # All values
+echo ${!sounds[@]} &nbsp;# All keys
+echo ${#sounds[@]} &nbsp;# Number of elements
+unset sounds[dog] &nbsp; # Delete dog
+</p><h3>Iteration</h3><p>for val in "${sounds[@]}"; do
+ &nbsp; &nbsp;echo $val
+done
+</p><hr><p>for key in "${!sounds[@]}"; do
+ &nbsp; &nbsp;echo $key
+done
+</p><h2><a href="https://quickref.me/bash#bash-conditionals">#</a>Bash Conditionals</h2><h3>Integer conditions</h3><figure class="table"><table><tbody><tr><td><code>[[ NUM -eq NUM ]]</code></td><td>Equal</td></tr><tr><td><code>[[ NUM -ne NUM ]]</code></td><td>Not&nbsp;equal</td></tr><tr><td><code>[[ NUM -lt NUM ]]</code></td><td>Less&nbsp;than</td></tr><tr><td><code>[[ NUM -le NUM ]]</code></td><td>Less than or&nbsp;equal</td></tr><tr><td><code>[[ NUM -gt NUM ]]</code></td><td>Greater&nbsp;than</td></tr><tr><td><code>[[ NUM -ge NUM ]]</code></td><td>Greater than or&nbsp;equal</td></tr><tr><td><code>(( NUM &lt; NUM ))</code></td><td>Less than</td></tr><tr><td><code>(( NUM &lt;= NUM ))</code></td><td>Less than or equal</td></tr><tr><td><code>(( NUM &gt; NUM ))</code></td><td>Greater than</td></tr><tr><td><code>(( NUM &gt;= NUM ))</code></td><td>Greater than or equal</td></tr></tbody></table></figure><h3>String conditions</h3><figure class="table"><table><tbody><tr><td><code>[[ -z STR ]]</code></td><td>Empty string</td></tr><tr><td><code>[[ -n STR ]]</code></td><td>Not empty string</td></tr><tr><td><code>[[ STR == STR ]]</code></td><td>Equal</td></tr><tr><td><code>[[ STR = STR ]]</code></td><td>Equal (Same above)</td></tr><tr><td><code>[[ STR &lt; STR ]]</code></td><td>Less than&nbsp;<i>(ASCII)</i></td></tr><tr><td><code>[[ STR &gt; STR ]]</code></td><td>Greater than&nbsp;<i>(ASCII)</i></td></tr><tr><td><code>[[ STR != STR ]]</code></td><td>Not Equal</td></tr><tr><td><code>[[ STR =~ STR ]]</code></td><td>Regexp</td></tr></tbody></table></figure><h3>Example</h3><h4>String</h4><p>if [[ -z "$string" ]]; then
+ &nbsp; &nbsp;echo "String is empty"
+elif [[ -n "$string" ]]; then
+ &nbsp; &nbsp;echo "String is not empty"
+else
+ &nbsp; &nbsp;echo "This never happens"
+fi
+</p><h4>Combinations</h4><p>if [[ X &amp;&amp; Y ]]; then
+ &nbsp; &nbsp;...
+fi
+</p><h4>Equal</h4><p>if [[ "$A" == "$B" ]]; then
+ &nbsp; &nbsp;...
+fi
+</p><h4>Regex</h4><p>if [[ '1. abc' =~ ([a-z]+) ]]; then
+ &nbsp; &nbsp;echo ${BASH_REMATCH[1]}
+fi
+</p><h4>Smaller</h4><p>if (( $a &lt; $b )); then
+ &nbsp; echo "$a is smaller than $b"
+fi
+</p><h4>Exists</h4><p>if [[ -e "file.txt" ]]; then
+ &nbsp; &nbsp;echo "file exists"
+fi
+</p><h3>File conditions</h3><figure class="table"><table><tbody><tr><td><code>[[ -e FILE ]]</code></td><td>Exists</td></tr><tr><td><code>[[ -d FILE ]]</code></td><td>Directory</td></tr><tr><td><code>[[ -f FILE ]]</code></td><td>File</td></tr><tr><td><code>[[ -h FILE ]]</code></td><td>Symlink</td></tr><tr><td><code>[[ -s FILE ]]</code></td><td>Size is &gt; 0 bytes</td></tr><tr><td><code>[[ -r FILE ]]</code></td><td>Readable</td></tr><tr><td><code>[[ -w FILE ]]</code></td><td>Writable</td></tr><tr><td><code>[[ -x FILE ]]</code></td><td>Executable</td></tr><tr><td><code>[[ f1 -nt f2 ]]</code></td><td>f1&nbsp;newer&nbsp;than f2</td></tr><tr><td><code>[[ f1 -ot f2 ]]</code></td><td>f2&nbsp;older&nbsp;than f1</td></tr><tr><td><code>[[ f1 -ef f2 ]]</code></td><td>Same files</td></tr></tbody></table></figure><h3>More conditions</h3><figure class="table"><table><tbody><tr><td><code>[[ -o noclobber ]]</code></td><td>If OPTION is enabled</td></tr><tr><td><code>[[ ! EXPR ]]</code></td><td>Not</td></tr><tr><td><code>[[ X &amp;&amp; Y ]]</code></td><td>And</td></tr><tr><td><code>[[ X || Y ]]</code></td><td>Or</td></tr></tbody></table></figure><h3>logical and, or</h3><p>if [ "$1" = 'y' -a $2 -gt 0 ]; then
+ &nbsp; &nbsp;echo "yes"
+fi
+
+if [ "$1" = 'n' -o $2 -lt 0 ]; then
+ &nbsp; &nbsp;echo "no"
+fi
+</p><h2><a href="https://quickref.me/bash#bash-loops">#</a>Bash Loops</h2><h3>Basic for loop</h3><p>for i in /etc/rc.*; do
+ &nbsp; &nbsp;echo $i
+done
+</p><h3>C-like for loop</h3><p>for ((i = 0 ; i &lt; 100 ; i++)); do
+ &nbsp; &nbsp;echo $i
+done
+</p><h3>Ranges</h3><p>for i in {1..5}; do
+ &nbsp; &nbsp;echo "Welcome $i"
+done
+</p><h4>With step size</h4><p>for i in {5..50..5}; do
+ &nbsp; &nbsp;echo "Welcome $i"
+done
+</p><h3>Auto increment</h3><p>i=1
+while [[ $i -lt 4 ]]; do
+ &nbsp; &nbsp;echo "Number: $i"
+ &nbsp; &nbsp;((i++))
+done
+</p><h3>Auto decrement</h3><p>i=3
+while [[ $i -gt 0 ]]; do
+ &nbsp; &nbsp;echo "Number: $i"
+ &nbsp; &nbsp;((i--))
+done
+</p><h3>Continue</h3><p>for number in $(seq 1 3); do
+ &nbsp; &nbsp;if [[ $number == 2 ]]; then
+ &nbsp; &nbsp; &nbsp; &nbsp;continue;
+ &nbsp; &nbsp;fi
+ &nbsp; &nbsp;echo "$number"
+done
+</p><h3>Break</h3><p>for number in $(seq 1 3); do
+ &nbsp; &nbsp;if [[ $number == 2 ]]; then
+ &nbsp; &nbsp; &nbsp; &nbsp;# Skip entire rest of loop.
+ &nbsp; &nbsp; &nbsp; &nbsp;break;
+ &nbsp; &nbsp;fi
+ &nbsp; &nbsp;# This will only print 1
+ &nbsp; &nbsp;echo "$number"
+done
+</p><h3>Until</h3><p>count=0
+until [ $count -gt 10 ]; do
+ &nbsp; &nbsp;echo "$count"
+ &nbsp; &nbsp;((count++))
+done
+</p><h3>Forever</h3><p>while true; do
+ &nbsp; &nbsp;# here is some code.
+done
+</p><h3>Forever (shorthand)</h3><p>while :; do
+ &nbsp; &nbsp;# here is some code.
+done
+</p><h3>Reading lines</h3><p>cat file.txt | while read line; do
+ &nbsp; &nbsp;echo $line
+done
+</p><h2><a href="https://quickref.me/bash#bash-functions">#</a>Bash Functions</h2><h3>Defining functions</h3><p>myfunc() {
+ &nbsp; &nbsp;echo "hello $1"
+}
+# Same as above (alternate syntax)
+function myfunc() {
+ &nbsp; &nbsp;echo "hello $1"
+}
+myfunc "John"
+</p><h3>Returning values</h3><p>myfunc() {
+ &nbsp; &nbsp;local myresult='some value'
+ &nbsp; &nbsp;echo $myresult
+}
+result="$(myfunc)"
+</p><h3>Raising errors</h3><p>myfunc() {
+ &nbsp; &nbsp;return 1
+}
+if myfunc; then
+ &nbsp; &nbsp;echo "success"
+else
+ &nbsp; &nbsp;echo "failure"
+fi
+</p><h2><a href="https://quickref.me/bash#bash-options">#</a>Bash Options</h2><h3>Options</h3><p># Avoid overlay files
+# (echo "hi" &gt; foo)
+set -o noclobber
+
+# Used to exit upon error
+# avoiding cascading errors
+set -o errexit &nbsp; 
+
+# Unveils hidden failures
+set -o pipefail &nbsp;
+
+# Exposes unset variables
+set -o nounset
+</p><h3>Glob options</h3><p># Non-matching globs are removed &nbsp;
+# ('*.foo' =&gt; '')
+shopt -s nullglob &nbsp; 
+
+# Non-matching globs throw errors
+shopt -s failglob &nbsp;
+
+# Case insensitive globs
+shopt -s nocaseglob 
+
+# Wildcards match dotfiles 
+# ("*.sh" =&gt; ".foo.sh")
+shopt -s dotglob &nbsp; &nbsp;
+
+# Allow ** for recursive matches 
+# ('lib/**/*.rb' =&gt; 'lib/a/b/c.rb')
+shopt -s globstar &nbsp; 
+</p><h2><a href="https://quickref.me/bash#bash-history">#</a>Bash History</h2><h3>Commands</h3><figure class="table"><table><tbody><tr><td><code>history</code></td><td>Show history</td></tr><tr><td><code>sudo !!</code></td><td>Run the previous command with sudo</td></tr><tr><td><code>shopt -s histverify</code></td><td>Don't execute expanded result immediately</td></tr></tbody></table></figure><h3>Expansions</h3><figure class="table"><table><tbody><tr><td><code>!$</code></td><td>Expand last parameter of most recent command</td></tr><tr><td><code>!*</code></td><td>Expand all parameters of most recent command</td></tr><tr><td><code>!-n</code></td><td>Expand&nbsp;<code>n</code>th most recent command</td></tr><tr><td><code>!n</code></td><td>Expand&nbsp;<code>n</code>th command in history</td></tr><tr><td><code>!&lt;command&gt;</code></td><td>Expand most recent invocation of command&nbsp;<code>&lt;command&gt;</code></td></tr></tbody></table></figure><h3>Operations</h3><figure class="table"><table><tbody><tr><td><code>!!</code></td><td>Execute last command again</td></tr><tr><td><code>!!:s/&lt;FROM&gt;/&lt;TO&gt;/</code></td><td>Replace first occurrence of&nbsp;<code>&lt;FROM&gt;</code>&nbsp;to&nbsp;<code>&lt;TO&gt;</code>&nbsp;in most recent command</td></tr><tr><td><code>!!:gs/&lt;FROM&gt;/&lt;TO&gt;/</code></td><td>Replace all occurrences of&nbsp;<code>&lt;FROM&gt;</code>&nbsp;to&nbsp;<code>&lt;TO&gt;</code>&nbsp;in most recent command</td></tr><tr><td><code>!$:t</code></td><td>Expand only basename from last parameter of most recent command</td></tr><tr><td><code>!$:h</code></td><td>Expand only directory from last parameter of most recent command</td></tr></tbody></table></figure><p><code>!!</code>&nbsp;and&nbsp;<code>!$</code>&nbsp;can be replaced with any valid expansion.</p><h3>Slices</h3><figure class="table"><table><tbody><tr><td><code>!!:n</code></td><td>Expand only&nbsp;<code>n</code>th token from most recent command (command is&nbsp;<code>0</code>; first argument is&nbsp;<code>1</code>)</td></tr><tr><td><code>!^</code></td><td>Expand first argument from most recent command</td></tr><tr><td><code>!$</code></td><td>Expand last token from most recent command</td></tr><tr><td><code>!!:n-m</code></td><td>Expand range of tokens from most recent command</td></tr><tr><td><code>!!:n-$</code></td><td>Expand&nbsp;<code>n</code>th token to last from most recent command</td></tr></tbody></table></figure><p><code>!!</code>&nbsp;can be replaced with any valid expansion i.e.&nbsp;<code>!cat</code>,&nbsp;<code>!-2</code>,&nbsp;<code>!42</code>, etc.</p><h2><a href="https://quickref.me/bash#miscellaneous">#</a>Miscellaneous</h2><h3>Numeric calculations</h3><p>$((a + 200)) &nbsp; &nbsp; &nbsp;# Add 200 to $a
+$(($RANDOM%200)) &nbsp;# Random number 0..199
+</p><h3>Subshells</h3><p>(cd somedir; echo "I'm now in $PWD")
+pwd # still in first directory
+</p><h3>Inspecting commands</h3><p>command -V cd
+#=&gt; "cd is a function/alias/whatever"
+</p><h3>Redirection</h3><p>python hello.py &gt; output.txt &nbsp; # stdout to (file)
+python hello.py &gt;&gt; output.txt &nbsp;# stdout to (file), append
+python hello.py 2&gt; error.log &nbsp; # stderr to (file)
+python hello.py 2&gt;&amp;1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # stderr to stdout
+python hello.py 2&gt;/dev/null &nbsp; &nbsp;# stderr to (null)
+python hello.py &amp;&gt;/dev/null &nbsp; &nbsp;# stdout and stderr to (null)
+python hello.py &lt; foo.txt &nbsp; &nbsp; &nbsp;# feed foo.txt to stdin for python
+</p><h3>Source relative</h3><p>source "${0%/*}/../share/foo.sh"
+</p><h3>Directory of script</h3><p>DIR="${0%/*}"
+</p><h3>Case/switch</h3><p>case "$1" in
+ &nbsp; &nbsp;start | up)
+ &nbsp; &nbsp;vagrant up
+ &nbsp; &nbsp;;;
+
+ &nbsp; &nbsp;*)
+ &nbsp; &nbsp;echo "Usage: $0 {start|stop|ssh}"
+ &nbsp; &nbsp;;;
+esac
+</p><h3>Trap errors</h3><p>trap 'echo Error at about $LINENO' ERR
+</p><p>or</p><p>traperr() {
+ &nbsp; &nbsp;echo "ERROR: ${BASH_SOURCE[1]} at about ${BASH_LINENO[0]}"
+}
+
+set -o errtrace
+trap traperr ERR
+</p><h3>printf</h3><p>printf "Hello %s, I'm %s" Sven Olga
+#=&gt; "Hello Sven, I'm Olga
+
+printf "1 + 1 = %d" 2
+#=&gt; "1 + 1 = 2"
+
+printf "Print a float: %f" 2
+#=&gt; "Print a float: 2.000000"
+</p><h3>Getting options</h3><p>while [[ "$1" =~ ^- &amp;&amp; ! "$1" == "--" ]]; do case $1 in
+ &nbsp; &nbsp;-V | --version )
+ &nbsp; &nbsp;echo $version
+ &nbsp; &nbsp;exit
+ &nbsp; &nbsp;;;
+ &nbsp; &nbsp;-s | --string )
+ &nbsp; &nbsp;shift; string=$1
+ &nbsp; &nbsp;;;
+ &nbsp; &nbsp;-f | --flag )
+ &nbsp; &nbsp;flag=1
+ &nbsp; &nbsp;;;
+esac; shift; done
+if [[ "$1" == '--' ]]; then shift; fi
+</p><h3>Check for command's result</h3><p>if ping -c 1 google.com; then
+ &nbsp; &nbsp;echo "It appears you have a working internet connection"
+fi
+</p><h3>Special variables</h3><figure class="table"><table><tbody><tr><td><code>$?</code></td><td>Exit status of last task</td></tr><tr><td><code>$!</code></td><td>PID of last background task</td></tr><tr><td><code>$$</code></td><td>PID of shell</td></tr><tr><td><code>$0</code></td><td>Filename of the shell script</td></tr></tbody></table></figure><p>See&nbsp;<a href="http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables">Special parameters</a>.</p><h3>Grep check</h3><p>if grep -q 'foo' ~/.bash_history; then
+ &nbsp; &nbsp;echo "You appear to have typed 'foo' in the past"
+fi
+</p><h3>Backslash escapes</h3><ul><li>&nbsp;</li><li>!</li><li>"</li><li>#</li><li>&amp;</li><li>'</li><li>(</li><li>)</li><li>,</li><li>;</li><li>&lt;</li><li>&gt;</li><li>[</li><li>|</li><li>&nbsp;</li><li>]</li><li>^</li><li>{</li><li>}</li><li>`</li><li>$</li><li>*</li><li>?</li></ul><p>Escape these special characters with&nbsp;</p><h3>Heredoc</h3><p>cat &lt;&lt;END
+hello world
+END
+</p><h3>Go to previous directory</h3><p>pwd # /home/user/foo
+cd bar/
+pwd # /home/user/foo/bar
+cd -
+pwd # /home/user/foo
+</p><h3>Reading input</h3><p>echo -n "Proceed? [y/n]: "
+read ans
+echo $ans
+read -n 1 ans &nbsp; &nbsp;# Just one character
+</p><h3>Conditional execution</h3><p>git commit &amp;&amp; git push
+git commit || echo "Commit failed"
+</p><h3>Strict mode</h3><p>set -euo pipefail
+IFS=$'nt'
+</p><p>See:&nbsp;<a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/">Unofficial bash strict mode</a></p><h3>Optional arguments</h3><p>args=("$@")
+args+=(foo)
+args+=(bar)
+echo "${args[@]}"
+</p><p>Put the arguments into an array and then append</p><h2><a href="https://quickref.me/bash#also-see">#</a>Also see</h2><ul><li><a href="https://devhints.io/bash">Devhints</a>&nbsp;<i>(devhints.io)</i></li><li><a href="http://wiki.bash-hackers.org/">Bash-hackers wiki</a>&nbsp;<i>(bash-hackers.org)</i></li><li><a href="http://wiki.bash-hackers.org/syntax/shellvars">Shell vars</a>&nbsp;<i>(bash-hackers.org)</i></li><li><a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes</a>&nbsp;<i>(learnxinyminutes.com)</i></li><li><a href="http://mywiki.wooledge.org/BashGuide">Bash Guide</a>&nbsp;<i>(mywiki.wooledge.org)</i></li><li><a href="https://www.shellcheck.net/">ShellCheck</a>&nbsp;<i>(shellcheck.net)</i></li><li><a href="https://devmanual.gentoo.org/tools-reference/bash/index.html">shell - Standard Shell</a>&nbsp;<i>(devmanual.gentoo.org)</i></li></ul>
