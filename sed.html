@@ -1,0 +1,423 @@
+<!DOCTYPE HTML><html class="scrollbar" translate="no"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta http-equiv="content-language" content="en-gb"><meta name="renderer" content="webkit"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="app:pageurl" content="/"><title>Sed Command Cheat Sheet & Quick Reference</title><meta name="keywords" content="reference,cheatsheet,code table,snippets,linux,text,editor,utility,replace"><meta name="description" content="Sed is a stream editor, this sed cheat sheet contains sed commands and some common sed tricks. "><meta property="og:url" content="https://quickref.me/sed.html"><meta property="og:title" content="Sed Command Cheat Sheet & Quick Reference"><meta property="og:site_name" content="QuickRef.ME"><meta property="og:description" content="Sed is a stream editor, this sed cheat sheet contains sed commands and some common sed tricks. "><meta property="og:image" content="https://quickref.me/assets/image/sed-preview.png?v=ji1th"><meta property="og:image:width" content="2276"><meta property="og:image:height" content="1240"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Sed Command Cheat Sheet & Quick Reference"><meta name="twitter:site" content="@QuickRef.ME"><meta name="twitter:creator" content="@QuickRef.ME"><meta name="twitter:description" content="Sed is a stream editor, this sed cheat sheet contains sed commands and some common sed tricks. "><meta name="twitter:image" content="https://quickref.me/assets/image/sed-preview.png?v=wsuno"><link rel="icon" href="/images/favicon.png?v=1"><link rel="icon shortcut" type="image/png" href="/images/favicon.png?v=1"><link rel="canonical" href="https://quickref.me/sed.html"><link rel="prefetch" href="https://quickref.me"><link rel="prerender" href="https://quickref.me"><link rel="alternate" href="/atom.xml" title="QuickRef.ME" type="application/atom+xml"><link rel="stylesheet" href="/css/style.css?_v=1694179016929"><script>
+       
+<h2 id="getting-started"><a class="h-anchor" href="#getting-started">#</a>Getting Started</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap">
+<h3 id="sed-usage"><a class="h-anchor" href="#sed-usage">#</a>Sed Usage</h3>
+<div class="section">
+<p>Syntax</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed [options] <span class="hljs-built_in">command</span> [input-file]</span>
+</code></pre>
+<p>With pipeline</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cat</span> report.txt | sed <span class="hljs-string">&#x27;s/Nick/John/g&#x27;</span></span>
+</code></pre>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;123abc&#x27;</span> | sed <span class="hljs-string">&#x27;s/[0-9]+//g&#x27;</span></span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap col-span-2">
+<h3 id="option-examples"><a class="h-anchor" href="#option-examples">#</a>Option Examples</h3>
+<div class="section">
+<table class="show-header">
+<thead>
+<tr>
+<th>Option</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-i</code></td>
+<td>sed -ibak 's/On/Off/' php.ini</td>
+<td>Backup and modify input file directly</td>
+</tr>
+<tr>
+<td><code>-E</code></td>
+<td>sed -E 's/[0-9]+//g' input-file</td>
+<td>Use extended regular expressions</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>sed -n '3 p' config.conf</td>
+<td>Suppress default pattern space printing</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>sed -f script.sed config.conf</td>
+<td>Execute sed script file</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>sed -e 'command1' -e 'command2' input-file</td>
+<td>Execute multiple sed commands</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="multiple-commands"><a class="h-anchor" href="#multiple-commands">#</a>Multiple commands</h3>
+<div class="section">
+<pre><code class="hljs wrap language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;hello world&quot;</span> | sed -e <span class="hljs-string">&#x27;s/h/H/g&#x27;</span> -e <span class="hljs-string">&#x27;s/w/W/g&#x27;</span></span>
+Hello World
+</code></pre>
+<p>Use <code>-e</code> to execute multiple sed commands</p>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="sed-script"><a class="h-anchor" href="#sed-script">#</a>Sed script</h3>
+<div class="section">
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;s/h/H/g&#x27;</span> &gt;&gt; hello.sed</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;s/w/W/g&#x27;</span> &gt;&gt; hello.sed</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;hello world&quot;</span> | sed -f hello.sed</span>
+Hello World
+</code></pre>
+<p>Use <code>-f</code> to execute sed script file</p>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="examples"><a class="h-anchor" href="#examples">#</a>Examples</h3>
+<div class="section">
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/old/new/g&#x27;</span> file.txt</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/old/new/g&#x27;</span> file.txt &gt; new.txt</span>
+<span class="hljs-meta prompt_">
+$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/old/new/g&#x27;</span> -i file.txt</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/old/new/g&#x27;</span> -i.backup file.txt</span>
+</code></pre>
+<p>See: <a href="#sed-examples">Sed examples</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="sed-commands"><a class="h-anchor" href="#sed-commands">#</a>Sed commands</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap col-span-2">
+<h3 id="commands"><a class="h-anchor" href="#commands">#</a>Commands</h3>
+<div class="section">
+<table class="show-header">
+<thead>
+<tr>
+<th>Command</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p</code></td>
+<td>sed -n '1,4 p' input.txt</td>
+<td>Print lines 1-4</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>sed -n -e '1,4 p' -e '6,7 p' input.txt</td>
+<td>Print lines 1-4 and 6-7</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>sed '1,4 d' input.txt</td>
+<td>Print lines except 1-4</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>sed -n '1,4 w output.txt' input.txt</td>
+<td>Write pattern space to file</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>sed '2 a new-line' input.txt</td>
+<td>Append line after</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>sed '2 i new-line' input.txt</td>
+<td>Insert line before</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="space-commands"><a class="h-anchor" href="#space-commands">#</a>Space commands</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>n</code></td>
+<td>Print pattern space, empty pattern space, and read next line</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>Swap pattern space with hold space</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>Copy pattern space to hold space</td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>Append pattern space to hold space</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>Copy hold space to pattern space</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>Append hold space to pattern space</td>
+</tr>
+</tbody>
+</table>
+<p>See also: <a href="#file-spacing">File spacing</a></p>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="flags"><a class="h-anchor" href="#flags">#</a>Flags</h3>
+<div class="section">
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/old/new/[flags]&#x27;</span> [input-file]</span>
+</code></pre>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>g</code></td>
+<td>Global substitution</td>
+</tr>
+<tr>
+<td><code>1,2...</code></td>
+<td>Substitute the nth occurrence</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>Print only the substituted line</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>Write only the substituted line to a file</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>Ignore case while searching</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>Substitute and execute in the command line</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="loops-commands"><a class="h-anchor" href="#loops-commands">#</a>Loops commands</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>b label</code></td>
+<td>Branch to a label (for looping)</td>
+</tr>
+<tr>
+<td><code>t label</code></td>
+<td>Branch to a label only on successful substitution<br>(for looping)</td>
+</tr>
+<tr>
+<td><code>:label</code></td>
+<td>Label for the b and t commands (for looping)</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>Append next line to pattern space</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>Print 1st line in multi-line</td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td>Delete 1st line in multi-line</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="misc-flags"><a class="h-anchor" href="#misc-flags">#</a>Misc Flags</h3>
+<div class="section">
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/ | ^ @ ! #</code></td>
+<td>Substitution delimiter can be any character</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>Gets the matched pattern</td>
+</tr>
+<tr>
+<td><code>( ) \1 \2 \3</code></td>
+<td>Group using <code>(</code> and <code>)</code>.<br>Use <code>\1</code>, <code>\2</code> in replacement to refer the group</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="h2-wrap">
+<h2 id="sed-examples"><a class="h-anchor" href="#sed-examples">#</a>Sed examples</h2>
+<div class="h3-wrap-list">
+<div class="h3-wrap row-span-2">
+<h3 id="replacing-text"><a class="h-anchor" href="#replacing-text">#</a>Replacing text</h3>
+<div class="section">
+<p>Replace all occurrences of a string</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/old/new/g&#x27;</span> file.txt</span>
+</code></pre>
+<p>Replace only the nth occurrence of a string</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/old/new/2&#x27;</span> file.txt</span>
+</code></pre>
+<p>Replace replace a string only on the 5th line</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;5 s/old/new/&#x27;</span> file.txt</span>
+</code></pre>
+<p>Replace &quot;world&quot; with &quot;universe&quot; but only if the line begins with &quot;hello&quot;</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/hello/s/world/universe/&#x27;</span> file.txt</span>
+</code></pre>
+<p>Remove &quot;&quot; from the end of each line</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/\\$//&#x27;</span> file.txt</span>
+</code></pre>
+<p>Remove all whitespace from beginning of each line</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/^\s*//&#x27;</span> file.txt</span>
+</code></pre>
+<p>Remove comments. Even those that are at the end of a line</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;s/#.*$//&#x27;</span> file.txt</span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="search-for-text"><a class="h-anchor" href="#search-for-text">#</a>Search for text</h3>
+<div class="section">
+<p>Search for a string and only print the lines that were matched</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed -n <span class="hljs-string">&#x27;/hello/p&#x27;</span> file.txt</span>
+</code></pre>
+<p>Case insensitive search</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed -n <span class="hljs-string">&#x27;/hello/Ip&#x27;</span> file.txt</span>
+</code></pre>
+<p>Search for a string but only output lines that do not match</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed -n <span class="hljs-string">&#x27;/hello/!p&#x27;</span> file.txt</span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="appending-lines"><a class="h-anchor" href="#appending-lines">#</a>Appending lines</h3>
+<div class="section">
+<p>Append line after line 2</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;2a Text after line 2&#x27;</span> file.txt</span>
+</code></pre>
+<p>Append line at the end of the file</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;$a THE END!&#x27;</span> file.txt</span>
+</code></pre>
+<p>Append line after every 3rd line starting from line 3</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;3~3a Some text&#x27;</span> file.txt</span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap col-span-2">
+<h3 id="numbering"><a class="h-anchor" href="#numbering">#</a>Numbering</h3>
+<div class="section">
+<p>Number line of a file (simple left alignment)</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed = file.txt | sed <span class="hljs-string">&#x27;N;s/\n/\t/&#x27;</span></span>
+</code></pre>
+<p>Number line of a file (number on left, right-aligned)</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed = file.txt | sed <span class="hljs-string">&#x27;N; s/^/   /; s/ *\(.\&#123;6,\&#125;\)\n/\1  /&#x27;</span></span>
+</code></pre>
+<p>Number line of file, but only print numbers if line is not blank</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/./=&#x27;</span> file.txt | sed <span class="hljs-string">&#x27;/./N; s/\n/ /&#x27;</span></span>
+</code></pre>
+<p>Count lines (emulates &quot;wc -l&quot;)</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed -n <span class="hljs-string">&#x27;$=&#x27;</span></span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="prepending-lines"><a class="h-anchor" href="#prepending-lines">#</a>Prepending lines</h3>
+<div class="section">
+<p>Insert text before line 5</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;5i line number five&#x27;</span> file.txt</span>
+</code></pre>
+<p>Insert &quot;Example: &quot; before each line that contains &quot;hello&quot;</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/hello/i Example: &#x27;</span> file.txt</span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="deleting-lines"><a class="h-anchor" href="#deleting-lines">#</a>Deleting lines</h3>
+<div class="section">
+<p>Delete line 5-7 in file</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;5,7d&#x27;</span> file.txt</span>
+</code></pre>
+<p>Delete every 2nd line starting with line 3</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;3~2d&#x27;</span> file.txt</span>
+</code></pre>
+<p>Delete the last line in file</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;$d&#x27;</span> file.txt</span>
+</code></pre>
+<p>Delete lines starting with &quot;Hello&quot;</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/^Hello/d&#x27;</span> file.txt</span>
+</code></pre>
+<p>Delete all empty lines</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/^$/d&#x27;</span> file.txt</span>
+</code></pre>
+<p>Delete lines starting with &quot;#&quot;</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/^#/d&#x27;</span> file.txt</span>
+</code></pre>
+</div>
+</div>
+<div class="h3-wrap">
+<h3 id="file-spacing"><a class="h-anchor" href="#file-spacing">#</a>File spacing</h3>
+<div class="section">
+<p>Double space</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed G</span>
+</code></pre>
+<p>Delete all blank lines and double space</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/^$/d;G&#x27;</span></span>
+</code></pre>
+<p>Triple space a file</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;G;G&#x27;</span></span>
+</code></pre>
+<p>Undo double-spacing</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;n;d&#x27;</span></span>
+</code></pre>
+<p>Insert a blank line above line which matches &quot;regex&quot;</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/regex/&#123;x;p;x;&#125;&#x27;</span></span>
+</code></pre>
+<p>Insert a blank line below line which matches &quot;regex&quot;</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/regex/G&#x27;</span></span>
+</code></pre>
+<p>Insert a blank line around line which matches &quot;regex&quot;</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sed <span class="hljs-string">&#x27;/regex/&#123;x;p;x;G;&#125;&#x27;</span></span>
+</code></pre>
